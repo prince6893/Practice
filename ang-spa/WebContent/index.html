@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Angular js -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+</head>
+<body>
+
+	<div ng-controller="myCtrl">
+		<center>
+			<p>Please Enter Email id and select a country to move further.</p>
+
+			<form name="myForm">
+				Email: <input type="email" ng-model="text" name="email"
+					placeholder="Enter your Email" required /> <br> 
+					<span ng-show="myForm.email.$error.email">Not a valid e-mail
+					address</span>
+
+				
+					Country: <select name="opt" ng-model="selectedName"
+						ng-options="x for x in names" required>
+
+						<option value="" disabled selected required>Please Select</option>
+						<span ng-show="myForm.opt.$error.required">Select Country</span>
+					</select>
+			</form>
+			
+				<input type="checkbox" value="Submit" ng-disabled="myForm.$invalid" ng-model="myVar">	
+<div ng-show="myVar">
+<h1>Welcome</h1>
+<p>Welcome to my home.</p>
+	
+
+	<a href="#/index">Home</a>
+	<a href="#/1">Blog</a>
+	<a href="#/2">About</a>
+</div>
+	<div ng-view></div>
+
+	</div>
+	<script src="myApp.js"></script>
+ 	<script src="myCtrl.js"></script>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+ 
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<select ng-model="selectedName" ng-options="x for x in names" placeholder="Enter">
+</select>
+
+</div>
+ <form ng-app="myApp" name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+</form>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.names = ["Argentina","Australia", "Brazil", "Chile","Denmark","Egypt","France","Germany","Hungary","India","Japan","Kenya","Lebanon","Mexico","Netherlands","Oman","Paraguay"];
+});
+</script>
+
+<p>This example shows how to fill a dropdown list using the ng-options directive.</p>
+
+</body>
+</html>
